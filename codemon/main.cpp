@@ -2,11 +2,9 @@
 
 #include <string>
 
-//System is the entire game. keep track of everything made etc.
-class System 
-{
-    
-};
+#include "data_structures.h"
+
+
 
 class Window
 {
