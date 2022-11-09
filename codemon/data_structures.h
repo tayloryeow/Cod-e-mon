@@ -9,9 +9,9 @@ public:
     Node(void* data_ptr);
     //Get the next node in the list. 
     Node* get_next();
-    Node* set_next(Node* next_node);
+    void set_next(Node* next_node);
     //Just keep the pointer to the data, don't store all of it.
-    Node* set_data(void* new_data);
+    void set_data(void* new_data);
 };
 
 class linked_list

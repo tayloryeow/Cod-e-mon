@@ -1,4 +1,4 @@
-#include "data_structures.h"
+  #include "data_structures.h"
 
 //Generic Linked List class - singly linked for now.
 Node::Node(void* data_ptr) {
@@ -9,11 +9,11 @@ Node::Node(void* data_ptr) {
 Node* Node::get_next() {
 	return this->next;
 }
-Node* Node::set_next(Node* next_node) {
+void Node::set_next(Node* next_node) {
 	this->next = next_node;
 }
 //Just keep the pointer to the data, don't store all of it.
-Node* Node::set_data(void* new_data) {
+void Node::set_data(void* new_data) {
 	//TODO when setting data, reconfirm that the data's deleted too.
 	this->data = new_data;
 }
@@ -53,12 +53,14 @@ bool linked_list::add_node(void* dataptr) {
 		new_node.set_next(this->head);
 		this->head = &new_node;
 	}
+
+	return true;
 }
 
 //Remove a node from the linked list -
 // - Remove the node with the dataptr that matches
 bool linked_list::remove_node(void* remove_me) {
-
+	return false;
 }
 
 
