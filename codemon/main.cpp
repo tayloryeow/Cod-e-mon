@@ -4,9 +4,13 @@
 
 #include "data_structures.h"
 
+class Sys_element
+{
+
+};
 
 
-class Window
+class Window: private Sys_element
 {
 private:
     int px_height, px_width;                            //size of the window  in pixels
