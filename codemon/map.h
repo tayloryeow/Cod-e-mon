@@ -3,10 +3,12 @@
 #include <fstream>
 
 #include "tile.h"
+#include "Window.h"
 #include "SFML/Graphics.hpp"
 
 
-class map
+
+class Map
 {
 private:
 	unsigned int width;
@@ -18,9 +20,14 @@ private:
 
 	std::string map_path;
 	std::string sheet_path;
-	Tile::tile* tile_map[];
-	map(std::string map_path, std::string sheet_path);
+	//2d array of tile pointers
+	Tile* tile_map;
+
+	void add_tile(Tile *new_tile);
+
 public:
-	Tile::tile** get_map();
-	sf::Texture* render_map();
+	Tile* get_map();
+	Map(std::string map_path, std::string sheet_path);
+	void render_map(Window *active_window);
+
 };

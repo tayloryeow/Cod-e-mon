@@ -2,7 +2,7 @@
 enum DIR { N = 3, E = 2, S = 0, W = 1};
 
 
-class character
+class Character
 {
 private:
 	int x;
@@ -14,8 +14,8 @@ private:
 	DIR facing;
 	
 public:
-	character();
-	character(int x, int y);
+	Character();
+	Character(int x, int y);
 	int get_x();
 	int get_y();
 	void set_x(int new_x);

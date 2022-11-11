@@ -2,7 +2,7 @@
 #include "character.h"
 
 
-character::character() {
+Character::Character() {
 	this->x = 0;
 	this->y = 0;
 	sf::Texture sprite_sheet;
@@ -11,7 +11,7 @@ character::character() {
 	this->facing = N;
 }
 
-character::character(int x, int y) {
+Character::Character(int x, int y) {
 	this->x = x;
 	this->y = y;
 	this->walk_anim_index = 0;
@@ -20,27 +20,27 @@ character::character(int x, int y) {
 	this->facing = N;
 }
 
-int character::get_x()
+int Character::get_x()
 {
 	return this->x;
 }
 
-int character::get_y()
+int Character::get_y()
 {
 	return this->y;
 }
 
-void character::set_x(int new_x)
+void Character::set_x(int new_x)
 {
 	this->x = new_x;
 }
 
-void character::set_y(int new_y)
+void Character::set_y(int new_y)
 {
 	this->x = new_y;
 }
 
-void character::move_x(int new_x)
+void Character::move_x(int new_x)
 {
 
 	if (this->x - (new_x + this->x) >= 0) {
@@ -53,7 +53,7 @@ void character::move_x(int new_x)
 
 }
 
-void character::move_y(int new_y)
+void Character::move_y(int new_y)
 {
 
 	if (this->y - (new_y + this->y)>= 0) {
@@ -65,18 +65,18 @@ void character::move_y(int new_y)
 	this->y += new_y;
 }
 
-sf::Sprite* character::get_current_sprite()
+sf::Sprite* Character::get_current_sprite()
 {
 	//Update sprite
 	return &this->current_sprite;
 }
 
-sf::Texture* character::get_sprite_sheet() {
+sf::Texture* Character::get_sprite_sheet() {
 	return &this->sprite_sheet;
 }
 
 
-bool character::load_sprite_sheet()
+bool Character::load_sprite_sheet()
 {
 	if (!this->sprite_sheet.loadFromFile("assets/Red_player.png")) {
 		return false;
@@ -86,7 +86,7 @@ bool character::load_sprite_sheet()
 	return true;
 }
 
-void character::update_sprite_pos() {
+void Character::update_sprite_pos() {
 
 	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * 32, this->facing * 32, 32, 32);
 
@@ -96,7 +96,7 @@ void character::update_sprite_pos() {
 	this->walk_anim_index = this->walk_anim_index % 3;
 }
 
-void character::set_facing(DIR dir)
+void Character::set_facing(DIR dir)
 {
 	this->facing = dir;
 }
