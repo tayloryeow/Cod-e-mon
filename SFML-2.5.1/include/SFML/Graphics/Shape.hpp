@@ -71,7 +71,7 @@ public:
     /// \see getTexture, setTextureRect
     ///
     ////////////////////////////////////////////////////////////
-    void setTexture(const Texture* texture, bool resetRect = false);
+    void setTexture(const Texture* sprite_sheet, bool resetRect = false);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the sub-rectangle of the texture that the shape will display

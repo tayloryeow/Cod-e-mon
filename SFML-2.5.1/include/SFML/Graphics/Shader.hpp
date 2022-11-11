@@ -460,7 +460,7 @@ public:
     /// \param texture Texture to assign
     ///
     ////////////////////////////////////////////////////////////
-    void setUniform(const std::string& name, const Texture& texture);
+    void setUniform(const std::string& name, const Texture& sprite_sheet);
 
     ////////////////////////////////////////////////////////////
     /// \brief Specify current texture as \p sampler2D uniform
@@ -615,7 +615,7 @@ public:
     /// \deprecated Use setUniform(const std::string&, const Texture&) instead.
     ///
     ////////////////////////////////////////////////////////////
-    SFML_DEPRECATED void setParameter(const std::string& name, const Texture& texture);
+    SFML_DEPRECATED void setParameter(const std::string& name, const Texture& sprite_sheet);
 
     ////////////////////////////////////////////////////////////
     /// \brief Change a texture parameter of the shader

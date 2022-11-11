@@ -295,7 +295,7 @@ public:
     /// \param texture Source texture to copy to this texture
     ///
     ////////////////////////////////////////////////////////////
-    void update(const Texture& texture);
+    void update(const Texture& sprite_sheet);
 
     ////////////////////////////////////////////////////////////
     /// \brief Update a part of this texture from another texture
@@ -312,7 +312,7 @@ public:
     /// \param y       Y offset in this texture where to copy the source texture
     ///
     ////////////////////////////////////////////////////////////
-    void update(const Texture& texture, unsigned int x, unsigned int y);
+    void update(const Texture& sprite_sheet, unsigned int x, unsigned int y);
 
     ////////////////////////////////////////////////////////////
     /// \brief Update the texture from an image
@@ -569,7 +569,7 @@ public:
     /// \param coordinateType Type of texture coordinates to use
     ///
     ////////////////////////////////////////////////////////////
-    static void bind(const Texture* texture, CoordinateType coordinateType = Normalized);
+    static void bind(const Texture* sprite_sheet, CoordinateType coordinateType = Normalized);
 
     ////////////////////////////////////////////////////////////
     /// \brief Get the maximum texture size allowed

@@ -64,7 +64,7 @@ public:
     /// \see setTexture
     ///
     ////////////////////////////////////////////////////////////
-    explicit Sprite(const Texture& texture);
+    explicit Sprite(const Texture& sprite_sheet);
 
     ////////////////////////////////////////////////////////////
     /// \brief Construct the sprite from a sub-rectangle of a source texture
@@ -75,7 +75,7 @@ public:
     /// \see setTexture, setTextureRect
     ///
     ////////////////////////////////////////////////////////////
-    Sprite(const Texture& texture, const IntRect& rectangle);
+    Sprite(const Texture& sprite_sheet, const IntRect& rectangle);
 
     ////////////////////////////////////////////////////////////
     /// \brief Change the source texture of the sprite
@@ -96,7 +96,7 @@ public:
     /// \see getTexture, setTextureRect
     ///
     ////////////////////////////////////////////////////////////
-    void setTexture(const Texture& texture, bool resetRect = false);
+    void setTexture(const Texture& sprite_sheet, bool resetRect = false);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the sub-rectangle of the texture that the sprite will display
