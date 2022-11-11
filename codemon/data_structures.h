@@ -1,9 +1,12 @@
+#ifndef MYHEADER_H
+#define MYHEADER_H
+
 //Generic Linked List class - singly linked for now.
 class Node
 {
 private:
-    void* data = nullptr;     //Poiter to the data that's held.
-    Node* next = nullptr;     //Pointer to the next data node
+    void* data;     //Pointer to the data that's held.
+    Node* next;     //Pointer to the next data node
 public:
     //Constructor: Intended that the new node becomes the head of the list.
     Node(void* data_ptr);
@@ -11,22 +14,27 @@ public:
     Node* get_next();
     void set_next(Node* next_node);
     //Just keep the pointer to the data, don't store all of it.
+<<<<<<< HEAD
     void set_data(void* new_data);
+=======
+    Node* set_data(void* new_data);
+    void* get_data();
+>>>>>>> 058ad7da46f5823deab6ba62e1972d7ba5c9fa8e
 };
 
-class linked_list
+class Linked_list
 {
-private:
+public:
     Node* head;
     Node* tail;
-public:
-    linked_list();
+    Linked_list();
     //Add a node to the linked list
     // -Take a dataPtr
     // - Add new_now to the head of the list.
     bool add_node(void* dataptr);
-    //Remove a node from the linked list -
-    // - Remove the node with the dataptr that matches
-    bool remove_node(void* remove_me);
+    bool remove_at(unsigned int index);
+    Node* get_head();
+    Node* get_tail();
 };
 
+#endif
