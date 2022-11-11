@@ -115,9 +115,7 @@ int main()
                 else if (event.key.code == sf::Keyboard::D) {
                     player.move_x(32);
                     player.update_sprite_pos();
-                }
-
-                    
+                }   
                 break;
             }
         }
