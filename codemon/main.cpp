@@ -3,6 +3,7 @@
 #include "character.h"
 #include "map.h"
 #include "Window.h"
+#include "direction.h"
 
 #include <list>
 #include <string>
@@ -26,7 +27,7 @@ int main()
     Map game_map("maps/map_00.txt", "maps/map_set/map_00.png");
 
     while (scr.get_window()->isOpen())
-    {
+    {   
         sf::Event event;
         while (scr.get_event(&event))
         {

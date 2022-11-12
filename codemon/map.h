@@ -5,6 +5,7 @@
 #include "tile.h"
 #include "Window.h"
 #include "SFML/Graphics.hpp"
+#include "direction.h"
 
 
 
@@ -29,5 +30,7 @@ public:
 	Tile* get_map();
 	Map(std::string map_path, std::string sheet_path);
 	void render_map(Window *active_window);
+
+	
 
 };

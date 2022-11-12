@@ -1,5 +1,7 @@
 #include "SFML/Graphics.hpp"
 #include "character.h"
+#include "direction.h"
+#include "map.h"
 
 
 Character::Character() {
@@ -8,7 +10,7 @@ Character::Character() {
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->walk_anim_index = 0;
-	this->facing = N;
+	this->facing = DIR::N;
 }
 
 Character::Character(int x, int y) {
@@ -17,7 +19,7 @@ Character::Character(int x, int y) {
 	this->walk_anim_index = 0;
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
-	this->facing = N;
+	this->facing = DIR::N;
 }
 
 int Character::get_x()
@@ -44,10 +46,10 @@ void Character::move_x(int new_x)
 {
 
 	if (this->x - (new_x + this->x) >= 0) {
-		this->set_facing(W);
+		this->set_facing(DIR::W);
 	}
 	else {
-		this->set_facing(E);
+		this->set_facing(DIR::E);
 	}
 	this->x += new_x;
 
@@ -57,10 +59,10 @@ void Character::move_y(int new_y)
 {
 
 	if (this->y - (new_y + this->y)>= 0) {
-		this->set_facing(N);
+		this->set_facing(DIR::N);
 	}
 	else {
-		this->set_facing(S);
+		this->set_facing(DIR::S);
 	}
 	this->y += new_y;
 }

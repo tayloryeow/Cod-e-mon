@@ -3,6 +3,7 @@
 #include "Window.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 
 
 
@@ -21,16 +22,12 @@ Tile* Map::get_map()
 //tile sheet row
 void Map::render_map(Window *active_window)
 {
-    sf::Texture map_texture;
-    if (!map_texture.create(this->width *32, this->height *32)) {
-        //error checking
-    }
 
     //Get the spritesheet read to sample from
     sf::Sprite to_draw(this->map_sheet);
     //Read through tile_map and render each tile
-    for (int y = 0; y < this->height; y++){             //Each row
-        for (int x = 0; x < this->width; x++) {         //Each column in each row
+    for (unsigned int y = 0; y < this->height; y++){             //Each row
+        for (unsigned int x = 0; x < this->width; x++) {         //Each column in each row
             //Get the tile representation
             Tile::tile curr_tile = this->tile_map[y * this->height + x].get_data();
 
@@ -44,6 +41,7 @@ void Map::render_map(Window *active_window)
             //Draw the current tile to active_windows buffer
             active_window->draw(&to_draw);
         }
+
     }
     
 }
@@ -54,7 +52,7 @@ Map::Map(std::string map_path, std::string sheet_path) {
     std::fstream mapfile;
 
     //Load the sprite sheet for this map.
-    if (!this->map_sheet.loadFromFile(this->sheet_path, sf::IntRect(10, 10, 32, 32)))
+    if (!this->map_sheet.loadFromFile(this->sheet_path))
     {
         // error...
     }
@@ -72,8 +70,8 @@ Map::Map(std::string map_path, std::string sheet_path) {
 
         //Read in height and width data and then create the tile map storage
         std::getline(mapfile, new_row);
-        this->width = new_row[0];
-        this->height = new_row[2];
+        this->width = int(new_row[0] - '0');
+        this->height = int(new_row[2] - '0');
         this->tile_map = new Tile[this->width * this->height];
 
         while (std::getline(mapfile, new_row)) {
