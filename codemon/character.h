@@ -1,12 +1,12 @@
 #pragma once
 #include "character.h"
 #include "direction.h"
+#include "Coordinates.h"
 
 class Character
 {
 private:
-	int x;
-	int y;
+	Coordinates pos;
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	sf::Texture* get_sprite_sheet();
@@ -22,9 +22,16 @@ public:
 	void set_y(int new_y);
 	sf::Sprite* get_current_sprite();
 	bool load_sprite_sheet();
-	void move_x(int new_x);
-	void move_y(int new_y);
+
 	void update_sprite_pos();
 	void set_facing(DIR dir);
+	void move(DIR move_dir);
+	void move_x(int new_x);
+	void move_y(int new_y);
+
+
+	//Returns the characters coords if it moved in a direction
+	Coordinates move_cord(DIR move_dir);
+	Coordinates get_pos();
 };
 

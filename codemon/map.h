@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "SFML/Graphics.hpp"
 #include "direction.h"
+#include "character.h"
+#include "Coordinates.h"
 
 
 
@@ -30,7 +32,6 @@ public:
 	Tile* get_map();
 	Map(std::string map_path, std::string sheet_path);
 	void render_map(Window *active_window);
-
-	
-
+	bool in_bounds(Character *moving_char, DIR move_dir);
+	bool in_bounds(Coordinates proposed_coord);
 };

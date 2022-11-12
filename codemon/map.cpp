@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-
+#include <cassert>
 
 
 void Map::add_tile(Tile *new_tile)
@@ -45,6 +45,12 @@ void Map::render_map(Window *active_window)
     }
     
 }
+
+bool Map::in_bounds(Coordinates proposed_coord) {
+    return true;
+}
+
+
 
 Map::Map(std::string map_path, std::string sheet_path) {
     this->map_path = map_path;

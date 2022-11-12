@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="Coordinates.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -147,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
+    <ClInclude Include="Coordinates.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Window.h" />

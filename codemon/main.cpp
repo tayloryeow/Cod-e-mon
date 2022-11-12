@@ -7,6 +7,7 @@
 
 #include <list>
 #include <string>
+#include "main.h"
 
 
 int main()
@@ -26,42 +27,67 @@ int main()
     //Load in test map
     Map game_map("maps/map_00.txt", "maps/map_set/map_00.png");
 
+    //Flag declarations
+    bool key_input = false;
+    DIR input_dir = NONE;
+
+    //So long as the active_window is still open.
     while (scr.get_window()->isOpen())
     {   
+        //Create a storage event for processing system/input events
         sf::Event event;
         while (scr.get_event(&event))
         {
             //If the player has closed the game
             switch (event.type) {
+            //Close button clicked
             case sf::Event::Closed:
                 scr.close();
                 break;
-                //If a key was pressed
+            //A keyboard key has been pressed
             case sf::Event::KeyPressed:
-
+                key_input = true;
+                
+                //Recode event as a input direction for game state.
                 //Up was pressed
                 if (event.key.code == sf::Keyboard::W) {
-                    player.move_y(-32);
-                    player.update_sprite_pos();
+                    input_dir = DIR::N;
                 }
                 //Down was pressed
                 else if (event.key.code == sf::Keyboard::S) {
-                    player.move_y(32);
-                    player.update_sprite_pos();
+                    input_dir = DIR::S;
                 }
                 //Left was pressed
                 else if (event.key.code == sf::Keyboard::A) {
-                    player.move_x(-32);
-                    player.update_sprite_pos();
+                    input_dir = DIR::W;
                 }
                 //Right was pressed
                 else if (event.key.code == sf::Keyboard::D) {
-                    player.move_x(32);
-                    player.update_sprite_pos();
+                    input_dir = DIR::E;
                 }   
                 break;
             }
         }
+        /*
+        Process loop portion
+        */
+
+        //If a keyboard input was pressed
+        if (key_input && input_dir != DIR::NONE) {
+            //Check bounds and if fine move. 
+            game_map.in_bounds(player.move_cord(input_dir));
+
+            player.move(input_dir);
+            player.update_sprite_pos();
+
+            //Reset the flags
+            key_input = false;
+            input_dir = DIR::NONE;
+        }
+
+        /*
+        Render loop portion
+        */
 
         scr.clear();
         //draw the sprite to the window
