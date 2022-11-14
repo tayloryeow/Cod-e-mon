@@ -12,8 +12,6 @@ private:
 	sf::Texture* get_sprite_sheet();
 	unsigned char walk_anim_index;
 	DIR facing;
-
-	unsigned int stride;
 	
 public:
 	Character();
@@ -28,6 +26,8 @@ public:
 	void update_sprite_pos();
 	void set_facing(DIR dir);
 	void move(DIR move_dir);
+	void move_x(int new_x);
+	void move_y(int new_y);
 
 
 	//Returns the characters coords if it moved in a direction

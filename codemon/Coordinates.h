@@ -12,8 +12,5 @@ public:
 	Coordinates();
 	Coordinates(unsigned int x, unsigned int y);
 	Coordinates operator+ (Coordinates const& obj);
-	void operator= (Coordinates * obj);
-	bool in(Coordinates test_cord);
-	unsigned int area();
 };
 

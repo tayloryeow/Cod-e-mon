@@ -12,7 +12,6 @@ Character::Character() {
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->facing = DIR::NONE;
-	stride = 1;
 }
 
 Character::Character(int x, int y) {
@@ -22,7 +21,6 @@ Character::Character(int x, int y) {
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->facing = DIR::NONE;
-	stride = 1;
 }
 
 int Character::get_x()
@@ -45,6 +43,30 @@ void Character::set_y(int new_y)
 	this->pos.set_y(new_y);
 }
 
+void Character::move_x(int new_x)
+{
+
+	if (this->get_x() - (new_x + this->get_x()) >= 0) {
+		this->set_facing(DIR::W);
+	}
+	else {
+		this->set_facing(DIR::E);
+	}
+	this->set_x(this->get_x() + new_x);
+
+}
+
+void Character::move_y(int new_y)
+{
+
+	if (this->get_y() - (new_y + this->get_y()) >= 0) {
+		this->set_facing(DIR::N);
+	}
+	else {
+		this->set_facing(DIR::S);
+	}
+	this->set_y(this->get_y() + new_y);
+}
 
 Coordinates Character::get_pos()
 {
@@ -79,16 +101,16 @@ Coordinates Character::move_cord(DIR move_dir) {
 
 	switch (move_dir) {
 	case DIR::N:
-		delta = Coordinates(0, -1);
+		delta = delta + Coordinates(1, 0);
 		break;
 	case DIR::S:
-		delta = Coordinates(0, 1);
+		delta = delta + Coordinates(-1, 0);
 		break;
 	case DIR::E:
-		delta = Coordinates(1, 0);
+		delta = delta + Coordinates(0, 1);
 		break;
 	case DIR::W:
-		delta = Coordinates(-1, 0);
+		delta = delta + Coordinates(0, -1);
 		break;
 	}
 
@@ -96,27 +118,35 @@ Coordinates Character::move_cord(DIR move_dir) {
 
 }
 
-//Move in a direction
 void Character::move(DIR new_dir)
 {
 	//Make sure its a valid move direction
 	assert(new_dir != DIR::NONE);
-	this->set_facing(new_dir);
-	this->pos = this->move_cord(new_dir);
+	switch (new_dir) {
+	case DIR::N:
+		move_y(-32);
+		break;
+	case DIR::S:
+		move_y(32);
+		break;
+	case DIR::E:
+		move_x(32);
+		break;
+	case DIR::W:
+		move_x(-32);
+		break;
+	}
 }
 
 
 void Character::update_sprite_pos() {
-	unsigned int sprite_x = walk_anim_index * 32;
-	unsigned int sprite_y = this->facing * 32;
 
-	sf::IntRect walk_mask = sf::IntRect(sprite_x, sprite_y, 32, 32);
+	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * 32, this->facing * 32, 32, 32);
 
-
-
-	this->current_sprite.setPosition((float)this->get_x() * 32, (float)this->get_y() * 32);
+	this->current_sprite.setPosition((float)this->get_x(), (float)this->get_y());
 	this->current_sprite.setTextureRect(walk_mask);
-	this->walk_anim_index = (this->walk_anim_index + 1) % 3;
+	this->walk_anim_index = this->walk_anim_index + 1;
+	this->walk_anim_index = this->walk_anim_index % 3;
 }
 
 void Character::set_facing(DIR dir)

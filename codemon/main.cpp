@@ -13,7 +13,12 @@
 int main()
 {
 
+    //Main Screen decleration.  
+    Window scr(32*16, 32 * 16, "Codemon!");
 
+    //Just keep track of all the windows created - maybe make this into a window manager
+    std::list<Window> windows_list;
+    windows_list.push_front(scr);
 
     //Create Test player character
     Character player;
@@ -25,13 +30,6 @@ int main()
     //Flag declarations
     bool key_input = false;
     DIR input_dir = NONE;
-
-    //Main Screen decleration.  
-    Window scr(game_map.get_tile_size() * 16, game_map.get_tile_size() * 16, "Codemon!");
-
-    //Just keep track of all the windows created - maybe make this into a window manager
-    std::list<Window> windows_list;
-    windows_list.push_front(scr);
 
     //So long as the active_window is still open.
     while (scr.get_window()->isOpen())
@@ -77,10 +75,10 @@ int main()
         //If a keyboard input was pressed
         if (key_input && input_dir != DIR::NONE) {
             //Check bounds and if fine move. 
-            if (game_map.in_bounds(player.move_cord(input_dir))) {
-                player.move(input_dir);
-                player.update_sprite_pos();
-            }
+            game_map.in_bounds(player.move_cord(input_dir));
+
+            player.move(input_dir);
+            player.update_sprite_pos();
 
             //Reset the flags
             key_input = false;
