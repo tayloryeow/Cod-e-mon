@@ -7,8 +7,29 @@
 
 #include <list>
 #include <string>
-#include "main.h"
 
+DIR convert_key_event(sf::Event *event) {
+    DIR input_dir = DIR::NONE;
+
+    //Recode event as a input direction for game state.
+    //Up was pressed
+    if (event->key.code == sf::Keyboard::W) {
+        input_dir = DIR::N;
+    }
+    //Down was pressed
+    else if (event->key.code == sf::Keyboard::S) {
+        input_dir = DIR::S;
+    }
+    //Left was pressed
+    else if (event->key.code == sf::Keyboard::A) {
+        input_dir = DIR::W;
+    }
+    //Right was pressed
+    else if (event->key.code == sf::Keyboard::D) {
+        input_dir = DIR::E;
+    }
+    return input_dir;
+}
 
 int main()
 {
@@ -47,24 +68,7 @@ int main()
             //A keyboard key has been pressed
             case sf::Event::KeyPressed:
                 key_input = true;
-                
-                //Recode event as a input direction for game state.
-                //Up was pressed
-                if (event.key.code == sf::Keyboard::W) {
-                    input_dir = DIR::N;
-                }
-                //Down was pressed
-                else if (event.key.code == sf::Keyboard::S) {
-                    input_dir = DIR::S;
-                }
-                //Left was pressed
-                else if (event.key.code == sf::Keyboard::A) {
-                    input_dir = DIR::W;
-                }
-                //Right was pressed
-                else if (event.key.code == sf::Keyboard::D) {
-                    input_dir = DIR::E;
-                }   
+                input_dir = convert_key_event(&event);
                 break;
             }
         }
