@@ -33,6 +33,7 @@ Map::Map(std::string map_path, std::string sheet_path) {
     unsigned int x = 0;
     unsigned int y = 0;
 
+    //if the map_storage file is successfully open
     if (mapfile.is_open()) {
         std::string new_row;
         std::string tile;
@@ -41,8 +42,11 @@ Map::Map(std::string map_path, std::string sheet_path) {
         std::getline(mapfile, new_row);
         this->set_width(unsigned int(new_row[0] - '0'));
         this->set_height(unsigned int(new_row[2] - '0'));
+
+        //Create the tile storage matrix
         this->tile_map = new Tile[this->get_width() * this->get_height()];
 
+        //Read in each Tile::enum and create a tile obj for it. Store it in the tile_map
         while (std::getline(mapfile, new_row)) {
             std::stringstream tile_row_stream(new_row);
             //Read in each character for each row
@@ -54,6 +58,7 @@ Map::Map(std::string map_path, std::string sheet_path) {
             x = 0;
             y++;
         }
+        //Close the input file after reading.
         mapfile.close();
     }
         return;
