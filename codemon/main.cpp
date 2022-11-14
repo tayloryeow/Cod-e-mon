@@ -73,7 +73,7 @@ int main()
             }
         }
         /*
-        Process loop portion
+        Process Game State + Input 
         */
 
         //If a keyboard input was pressed

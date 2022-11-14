@@ -122,6 +122,7 @@ void Character::move(DIR new_dir)
 {
 	//Make sure its a valid move direction
 	assert(new_dir != DIR::NONE);
+	this->facing = new_dir;
 	switch (new_dir) {
 	case DIR::N:
 		move_y(-32);
