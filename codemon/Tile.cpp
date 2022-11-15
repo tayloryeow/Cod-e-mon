@@ -3,30 +3,38 @@
 #include "SFML/Graphics.hpp"
 
 Tile::Tile(unsigned int x, unsigned int y, 	Tile::tile data) {
-	this->x = x;
-	this->y = y;
+	this->pos = new Coordinates(x, y);
 	this->data = data;	
 }
 
 Tile::Tile() {
-	this->x = 0;
-	this->y = 0;
+	this->pos = new Coordinates(0, 0);
 	this->data = (Tile::tile) 0;
 }
 
 
 unsigned int Tile::get_x()
 {
-	return this->x;
+	return this->get_pos()->get_x();
 }
 
 
 unsigned int Tile::get_y()
 {
-	return this->y;
+	return this->get_pos()->get_y();
 }
 
 Tile::tile Tile::get_data()
 {
 	return this->data;
+}
+
+Coordinates* Tile::get_pos() {
+	return this->pos;
+}
+
+
+void Tile::set_pos(unsigned int x, unsigned int y) {
+	this->get_pos()->set_x(x);
+	this->get_pos()->set_y(y);
 }

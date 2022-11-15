@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Coordinates.h"
 
 class Tile
 {
@@ -10,9 +10,10 @@ public:
 	unsigned int get_x();
 	unsigned int get_y();
 	Tile::tile get_data();
+	Coordinates* get_pos();
+	void set_pos(unsigned int x, unsigned int y);
 private:
-	unsigned int x;
-	unsigned int y;
+	Coordinates *pos;
 	Tile::tile data;
 };
 
