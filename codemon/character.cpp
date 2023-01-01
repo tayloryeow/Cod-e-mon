@@ -60,6 +60,10 @@ void Character::move_x(int new_x)
 	this->set_x(this->get_x() + new_x);
 }
 
+//Move this character by and ammount on the Y axis.
+//-Set facing direction for the character
+//-Move the character
+//-No error, bounds or collision checks
 void Character::move_y(int new_y)
 {
 	if (new_y >= 0) {
@@ -72,6 +76,7 @@ void Character::move_y(int new_y)
 	this->set_y(this->get_y() + new_y);
 }
 
+//Return this character's position
 Coordinates Character::get_pos()
 {
 	return this->pos;
