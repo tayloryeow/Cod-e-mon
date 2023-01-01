@@ -43,28 +43,32 @@ void Character::set_y(int new_y)
 	this->pos.set_y(new_y);
 }
 
+//Move this character by and ammount on the X axis.
+//-Set facing direction for the character
+//-Move the character
+//-No error, bounds or collision checks
 void Character::move_x(int new_x)
 {
-
-	if (this->get_x() - (new_x + this->get_x()) >= 0) {
-		this->set_facing(DIR::W);
+	//Determine which direction the proposed move (new_x) is in.
+	if (new_x >= 0) {
+		this->set_facing(DIR::E); //Face East
 	}
 	else {
-		this->set_facing(DIR::E);
+		this->set_facing(DIR::W); //Face West
 	}
+	//Add the diff to this character's position
 	this->set_x(this->get_x() + new_x);
-
 }
 
 void Character::move_y(int new_y)
 {
-
-	if (this->get_y() - (new_y + this->get_y()) >= 0) {
-		this->set_facing(DIR::N);
-	}
-	else {
+	if (new_y >= 0) {
 		this->set_facing(DIR::S);
 	}
+	else {
+		this->set_facing(DIR::N);
+	}
+	//Add the diff to this character's position
 	this->set_y(this->get_y() + new_y);
 }
 

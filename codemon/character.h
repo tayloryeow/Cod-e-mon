@@ -3,6 +3,15 @@
 #include "direction.h"
 #include "Coordinates.h"
 
+
+/******************************************************************************
+Character class - does whatever a character does. 
+Seriously though its pretty boiler plate. 
+Everything operaters through setters and getters.
+
+1/1/2023
+
+*****************************************************************************/
 class Character
 {
 private:
@@ -26,12 +35,17 @@ public:
 	void update_sprite_pos();
 	void set_facing(DIR dir);
 	void move(DIR move_dir);
+
+	//Change x or y values by the given ammount.
 	void move_x(int new_x);
 	void move_y(int new_y);
 
 
-	//Returns the characters coords if it moved in a direction
+	//Returns this character's coordinates after a 
+	//succesful move in a direction
 	Coordinates move_cord(DIR move_dir);
+
+	//Get this characters current position
 	Coordinates get_pos();
 };
 
