@@ -6,28 +6,26 @@
 #include <iostream>
 #include <cassert>
 
+//Create a map object from a given paths to a map file and a tile sheet for said map.
 Map::Map(std::string map_path, std::string sheet_path) {
 
     /*Initialize all state variables*/
     this->set_dimensions(Coordinates(0, 0));
     this->set_start_pos(Coordinates(0, 0));
 
+    //relative paths to binary map file and sprite sheet image
     this->map_path = map_path;
     this->sheet_path = sheet_path;
-    std::fstream mapfile;
+    std::fstream mapfile;               //create a spot for map fstream
 
-    /*
-    * Load - the sprite sheet for this map.
-    */
+    /* Load - the sprite sheet for this map. */
     if (!this->map_sheet.loadFromFile(this->sheet_path))
     {
         // error...
     }
 
-    /*
-    * Load - the integer map textfile for this map
-    */
-    std::string delim = ",";
+    /* Load - the integer map textfile for this map */
+    std::string delim = ",";                        //Deliminator for map file
     mapfile.open(this->map_path, std::ios::in);
 
     unsigned int x = 0;
