@@ -132,6 +132,7 @@ Coordinates Character::move_cord(DIR move_dir) {
 
 }
 
+//Move character in a direction
 void Character::move(DIR new_dir)
 {
 	//Make sure its a valid move direction
@@ -153,7 +154,7 @@ void Character::move(DIR new_dir)
 	}
 }
 
-
+	
 void Character::update_sprite_pos() {
 
 	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * 32, this->facing * 32, 32, 32);
