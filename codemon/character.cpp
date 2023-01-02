@@ -157,7 +157,7 @@ void Character::move(DIR new_dir)
 	
 void Character::update_sprite_pos() {
 
-	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * 32, this->facing * 32, 32, 32);
+	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * this->sprite_width, this->facing * this->sprite_width, this->sprite_width, this->sprite_height);
 
 	this->current_sprite.setPosition((float)this->get_x(), (float)this->get_y());
 	this->current_sprite.setTextureRect(walk_mask);
