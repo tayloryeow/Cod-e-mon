@@ -139,16 +139,16 @@ void Character::move(DIR new_dir)
 	this->facing = new_dir;
 	switch (new_dir) {
 	case DIR::N:
-		move_y(-32);
+		move_y(0 - this->sprite_height);
 		break;
 	case DIR::S:
-		move_y(32);
+		move_y(this->sprite_height);
 		break;
 	case DIR::E:
-		move_x(32);
+		move_x(this->sprite_width);
 		break;
 	case DIR::W:
-		move_x(-32);
+		move_x(0 - this->sprite_width);
 		break;
 	}
 }
