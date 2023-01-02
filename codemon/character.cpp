@@ -24,6 +24,10 @@ Character::Character(int x, int y) {
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->facing = DIR::NONE;
+
+	this->sprite_width = 32;
+	this->sprite_height = 32;
+
 }
 
 int Character::get_x()
