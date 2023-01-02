@@ -8,6 +8,7 @@
 #include <list>
 #include <string>
 
+//Convert the key input into direction input
 DIR convert_key_event(sf::Event *event) {
     DIR input_dir = DIR::NONE;
 
@@ -31,13 +32,13 @@ DIR convert_key_event(sf::Event *event) {
     return input_dir;
 }
 
+//Welcome to Codemon!
 int main()
 {
-
-    //Main Screen decleration.  
+    //Main Screen declaration. Right now its a 16x16 grid of 32 px tiles
     Window scr(32*16, 32 * 16, "Codemon!");
 
-    //Just keep track of all the windows created - maybe make this into a window manager
+    //Just keep track of all the windows created
     std::list<Window> windows_list;
     windows_list.push_front(scr);
 
