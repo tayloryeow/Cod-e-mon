@@ -15,11 +15,20 @@ Everything operaters through setters and getters.
 class Character
 {
 private:
-	Coordinates pos;
-	sf::Texture sprite_sheet;
-	sf::Sprite current_sprite;
+	//Helper function that gets a pointer to the spirte sheet.
 	sf::Texture* get_sprite_sheet();
+
+	//Position in the current map. None if not on a map.
+	Coordinates pos;
+	//Sprite sheet.
+	sf::Texture sprite_sheet;
+	//current walk animation sprite.
+	sf::Sprite current_sprite;
+
+	//Which part of the walk cycle this character is at.
 	unsigned char walk_anim_index;
+	
+	//What direction of is this character facing.
 	DIR facing;
 	
 public:
