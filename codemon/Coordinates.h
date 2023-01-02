@@ -9,6 +9,7 @@ Additionally rolled my own as an exercise.
 Operates on getters setters, etc.. can be created with default or over ridden values.
 Vector addition also is supported
 
+Used all over such as in character, map, tile, etc.
 */
 class Coordinates
 {
