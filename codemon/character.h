@@ -23,23 +23,25 @@ private:
 	DIR facing;
 	
 public:
+	/*Constructors*/
 	Character();
 	Character(int x, int y);
+
+	/*coordinate element getters*/
 	int get_x();
 	int get_y();
+
+	/*coordinate element setters*/
 	void set_x(int new_x);
 	void set_y(int new_y);
-	sf::Sprite* get_current_sprite();
-	bool load_sprite_sheet();
 
-	void update_sprite_pos();
-	void set_facing(DIR dir);
-	void move(DIR move_dir);
-
+	/*Coordinate element modifier functions*/
 	//Change x or y values by the given ammount.
 	void move_x(int new_x);
 	void move_y(int new_y);
 
+	/*move character in given direction*/
+	void move(DIR move_dir);
 
 	//Returns this character's coordinates after a 
 	//succesful move in a direction
@@ -47,5 +49,11 @@ public:
 
 	//Get this characters current position
 	Coordinates get_pos();
+
+	/*Sprite accounting functions*/
+	sf::Sprite* get_current_sprite();
+	bool load_sprite_sheet();
+	void update_sprite_pos();
+	void set_facing(DIR dir);
 };
 

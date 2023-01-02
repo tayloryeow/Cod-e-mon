@@ -15,7 +15,7 @@ Character::Character() {
 }
 
 Character::Character(int x, int y) {
-	
+	//Create character at a position
 	this->pos = Coordinates(x, y);
 	this->walk_anim_index = 0;
 	sf::Texture sprite_sheet;
@@ -103,6 +103,8 @@ bool Character::load_sprite_sheet()
 	return true;
 }
 
+//Given a direction return this character's 
+//new position after a hypothetical move.  
 Coordinates Character::move_cord(DIR move_dir) {
 	assert(move_dir != DIR::NONE);
 
