@@ -2,10 +2,18 @@
 #include <string>
 #include "SFML/Graphics.hpp"
 
+/* Constructors */
 Tile::Tile(unsigned int x, unsigned int y, 	Tile::tile data) {
 	this->pos = new Coordinates(x, y);
 	this->data = data;	
 }
+
+//Todo add tile constructor off of a coordinate not just naked coord ints
+Tile::Tile(Coordinates *tile_pos, Tile::tile data) {
+	this->pos = tile_pos;
+	this->data = data;
+}
+
 
 Tile::Tile() {
 	this->pos = new Coordinates(0, 0);
