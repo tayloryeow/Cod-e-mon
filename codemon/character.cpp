@@ -5,13 +5,16 @@
 #include "map.h"
 #include <cassert>
 
-
+/* Constructor */
 Character::Character() {
 	this->pos = Coordinates(0, 0);
 	this->walk_anim_index = 0;
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->facing = DIR::NONE;
+
+	this->sprite_width = 32;
+	this->sprite_height = 32;
 }
 
 Character::Character(int x, int y) {
@@ -99,7 +102,7 @@ bool Character::load_sprite_sheet()
 		return false;
 	}
 	this->current_sprite.setTexture(*this->get_sprite_sheet());
-	this->current_sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+	this->current_sprite.setTextureRect(sf::IntRect(0, 0, this->sprite_width, this->sprite_height));
 	return true;
 }
 

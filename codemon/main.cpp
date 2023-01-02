@@ -79,7 +79,7 @@ int main()
 
         //If a keyboard input was pressed
         if (key_input && input_dir != DIR::NONE) {
-            //Check bounds and if fine move. 
+            //Check bounds and if fine move. Currently disabled
             game_map.in_bounds(player.move_cord(input_dir));
 
             player.move(input_dir);
