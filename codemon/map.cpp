@@ -6,12 +6,22 @@
 #include <iostream>
 #include <cassert>
 
+void Map::set_tile_size(unsigned int tile_width, unsigned int tile_height) {
+
+
+}
+
 //Create a map object from a given paths to a map file and a tile sheet for said map.
 Map::Map(std::string map_path, std::string sheet_path) {
+
+    /* Tilesize hardcoding */
+    unsigned int tile_width = 32;
+    unsigned int tile_height = 32;
 
     /*Initialize all state variables*/
     this->set_dimensions(Coordinates(0, 0));
     this->set_start_pos(Coordinates(0, 0));
+    this->set_tile_size(Coordinates(tile_width, tile_height));
 
     //relative paths to binary map file and sprite sheet image
     this->map_path = map_path;

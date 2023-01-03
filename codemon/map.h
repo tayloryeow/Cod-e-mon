@@ -14,6 +14,8 @@
 class Map
 {
 private:
+
+
 	//How big the map is in x, y
 	Coordinates dimensions;
 	//Where the player character spawns when loaded
@@ -31,6 +33,8 @@ private:
 	//Put a tile into the map, tile holds its own pos but 
 	//the new tile is also indexed by its pos.
 	void add_tile(Tile *new_tile);
+
+	void set_tile_size();
 
 public:
 	//get a pointer to the map
