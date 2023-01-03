@@ -14,7 +14,8 @@
 class Map
 {
 private:
-
+	//Tilesize definitions
+	Coordinates tile_dimensions;
 
 	//How big the map is in x, y
 	Coordinates dimensions;
@@ -57,6 +58,12 @@ public:
 	unsigned int get_width();
 	unsigned int get_height();
 	void set_start_pos(Coordinates start);
+
+	/* Initializer for the the size, in two dimensions, of each tile in the map. 
+	its the size of a generic tile for this map in pixels.*/
+	void set_tile_size(unsigned int tile_width, unsigned int tile_height);
+	void set_tile_size(Coordinates tile_dimensionality);
+
 
 	//Get dimensions as a tuple
 	Coordinates *get_dimensions();

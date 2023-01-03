@@ -6,14 +6,17 @@
 #include <iostream>
 #include <cassert>
 
+/* Generic Tile size specification. Works for bare ints or coordinates */
 void Map::set_tile_size(unsigned int tile_width, unsigned int tile_height) {
+    this->tile_dimensions = Coordinates(tile_width, tile_height);
+}
 
-
+void Map::set_tile_size(Coordinates tile_dimensionality) {
+    this->tile_dimensions = tile_dimensionality;
 }
 
 //Create a map object from a given paths to a map file and a tile sheet for said map.
 Map::Map(std::string map_path, std::string sheet_path) {
-
     /* Tilesize hardcoding */
     unsigned int tile_width = 32;
     unsigned int tile_height = 32;
