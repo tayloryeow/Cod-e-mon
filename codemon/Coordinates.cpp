@@ -2,6 +2,7 @@
 
 
 
+//Support coordinate addition
 Coordinates Coordinates::operator+ (Coordinates const& obj) {
     Coordinates res(0, 0);
     res.set_x(this->get_x() + obj.x);
@@ -9,17 +10,22 @@ Coordinates Coordinates::operator+ (Coordinates const& obj) {
     return res; 
 }
 
+/* Constructors  */
+
+//Empty constructor
 Coordinates::Coordinates() {
     this->x = 0;
     this->y = 0;
 }
 
+//Bare int constructor
 Coordinates::Coordinates(unsigned int x, unsigned int y)
 {
     this->y = y;
     this->x = x;
 }
 
+//Coordinate getters and setters
 unsigned int Coordinates::get_x()
 {
     return this->x;

@@ -14,6 +14,9 @@
 class Map
 {
 private:
+	//Tilesize definitions
+	Coordinates tile_dimensions;
+
 	//How big the map is in x, y
 	Coordinates dimensions;
 	//Where the player character spawns when loaded
@@ -31,6 +34,10 @@ private:
 	//Put a tile into the map, tile holds its own pos but 
 	//the new tile is also indexed by its pos.
 	void add_tile(Tile *new_tile);
+
+	void set_tile_size();
+	int get_tile_width();
+	int get_tile_height();
 
 public:
 	//get a pointer to the map
@@ -53,6 +60,12 @@ public:
 	unsigned int get_width();
 	unsigned int get_height();
 	void set_start_pos(Coordinates start);
+
+	/* Initializer for the the size, in two dimensions, of each tile in the map. 
+	its the size of a generic tile for this map in pixels.*/
+	void set_tile_size(unsigned int tile_width, unsigned int tile_height);
+	void set_tile_size(Coordinates tile_dimensionality);
+
 
 	//Get dimensions as a tuple
 	Coordinates *get_dimensions();

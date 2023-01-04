@@ -30,6 +30,10 @@ private:
 	
 	//What direction of is this character facing.
 	DIR facing;
+
+	//Sprite dimensions
+	unsigned int sprite_width;
+	unsigned int sprite_height;
 	
 public:
 	/*Constructors*/

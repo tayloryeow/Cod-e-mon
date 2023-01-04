@@ -5,13 +5,16 @@
 #include "map.h"
 #include <cassert>
 
-
+/* Constructor */
 Character::Character() {
 	this->pos = Coordinates(0, 0);
 	this->walk_anim_index = 0;
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->facing = DIR::NONE;
+
+	this->sprite_width = 32;
+	this->sprite_height = 32;
 }
 
 Character::Character(int x, int y) {
@@ -21,6 +24,10 @@ Character::Character(int x, int y) {
 	sf::Texture sprite_sheet;
 	sf::Sprite current_sprite;
 	this->facing = DIR::NONE;
+
+	this->sprite_width = 32;
+	this->sprite_height = 32;
+
 }
 
 int Character::get_x()
@@ -99,7 +106,7 @@ bool Character::load_sprite_sheet()
 		return false;
 	}
 	this->current_sprite.setTexture(*this->get_sprite_sheet());
-	this->current_sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+	this->current_sprite.setTextureRect(sf::IntRect(0, 0, this->sprite_width, this->sprite_height));
 	return true;
 }
 
@@ -129,6 +136,7 @@ Coordinates Character::move_cord(DIR move_dir) {
 
 }
 
+//Move character in a direction
 void Character::move(DIR new_dir)
 {
 	//Make sure its a valid move direction
@@ -136,24 +144,24 @@ void Character::move(DIR new_dir)
 	this->facing = new_dir;
 	switch (new_dir) {
 	case DIR::N:
-		move_y(-32);
+		move_y(0 - this->sprite_height);
 		break;
 	case DIR::S:
-		move_y(32);
+		move_y(this->sprite_height);
 		break;
 	case DIR::E:
-		move_x(32);
+		move_x(this->sprite_width);
 		break;
 	case DIR::W:
-		move_x(-32);
+		move_x(0 - this->sprite_width);
 		break;
 	}
 }
 
-
+	
 void Character::update_sprite_pos() {
 
-	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * 32, this->facing * 32, 32, 32);
+	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * this->sprite_width, this->facing * this->sprite_width, this->sprite_width, this->sprite_height);
 
 	this->current_sprite.setPosition((float)this->get_x(), (float)this->get_y());
 	this->current_sprite.setTextureRect(walk_mask);

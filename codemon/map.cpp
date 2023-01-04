@@ -6,12 +6,33 @@
 #include <iostream>
 #include <cassert>
 
+/* Generic Tile size specification. Works for bare ints or coordinates */
+void Map::set_tile_size(unsigned int tile_width, unsigned int tile_height) {
+    this->tile_dimensions = Coordinates(tile_width, tile_height);
+}
+
+void Map::set_tile_size(Coordinates tile_dimensionality) {
+    this->tile_dimensions = tile_dimensionality;
+}
+
+int Map::get_tile_width() {
+    return this->tile_dimensions.get_x();
+}
+
+int Map::get_tile_height() {
+    return this->tile_dimensions.get_y();
+}
+
 //Create a map object from a given paths to a map file and a tile sheet for said map.
 Map::Map(std::string map_path, std::string sheet_path) {
+    /* Tilesize hardcoding */
+    unsigned int tile_width = 32;
+    unsigned int tile_height = 32;
 
     /*Initialize all state variables*/
     this->set_dimensions(Coordinates(0, 0));
     this->set_start_pos(Coordinates(0, 0));
+    this->set_tile_size(Coordinates(tile_width, tile_height));
 
     //relative paths to binary map file and sprite sheet image
     this->map_path = map_path;
@@ -75,12 +96,23 @@ void Map::render_map(Window* active_window)
             //Get the tile representation
             Tile::tile curr_tile = this->tile_map[y * this->get_height() + x].get_data();
 
-            //Set the appropriate sprite_sheet area to draw
-            sf::IntRect mask_rect = sf::IntRect(((int)curr_tile) * 32, 0, 32, 32);
+            /* Set the appropriate sprite_sheet area to draw */
+            //Calculatex offset of the current tile from the spirite sheet
+            //the tile type id (i.e. the number its saved as) is the index to the spirite sheet
+            int x_sheet_off = ((int)curr_tile) * this->get_tile_width(); 
+            int y_sheet_off = 0; //set as 0 currently. Will need to be extended evetually
+
+            //Clip the tile from the sprite sheet
+            sf::IntRect mask_rect = sf::IntRect(
+                x_sheet_off, y_sheet_off, 
+                this->get_tile_width(), this->get_tile_height()
+            );
             to_draw.setTextureRect(mask_rect);
 
-            //Calculate the destination coords for the tile
-            to_draw.setPosition((float)x * 32, (float)y * 32);
+            /* Calculate & set the destination coords of the tile for drawing */
+            float dest_x = (float)x * this->get_tile_width();
+            float dest_y = (float)y * this->get_tile_height();
+            to_draw.setPosition(dest_x, dest_y);
 
             //Draw the current tile to active_windows buffer
             active_window->draw(&to_draw);
