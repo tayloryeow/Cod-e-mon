@@ -36,6 +36,8 @@ private:
 	void add_tile(Tile *new_tile);
 
 	void set_tile_size();
+	int get_tile_width();
+	int get_tile_height();
 
 public:
 	//get a pointer to the map
