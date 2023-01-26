@@ -52,7 +52,7 @@ Map::Map(std::string map_path, std::string sheet_path) {
     unsigned int x = 0;
     unsigned int y = 0;
 
-    //if the map_storage file is successfully open
+    //if the map_storage file is successfully opened
     if (mapfile.is_open()) {
         std::string new_row;
         std::string tile;
