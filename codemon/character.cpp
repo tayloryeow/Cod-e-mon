@@ -183,15 +183,33 @@ void Character::move(DIR new_dir)
 	}
 }
 
-	
+// Update sprite animation for rendering. 
+// Uses the, hopefully, apprioriately set facing and walk animation values to select which sprite from 
+// the sprite sheet should be shown
 void Character::update_sprite_pos() {
 
-	sf::IntRect walk_mask = sf::IntRect(walk_anim_index * this->sprite_width, this->facing * this->sprite_width, this->sprite_width, this->sprite_height);
+	//Set display target rectangle. 
+	//Relies on, currently:
+	// 1. the walking animation index being the value which describes what part of the walk cycle is.
+	// 2. The relationship between the characters facing enum value 
+	//     being the index for what direction a sprite faces in the sprite sheet 
+	//Essentially as the character walks in a direction, the selected rectangles 
+	//shifts in the X-axis along the 2d spritesheet. Similarily, facing changes the y-axis.
+	sf::IntRect walk_mask = sf::IntRect(
+		walk_anim_index * this->sprite_width, 
+		this->facing * this->sprite_width, 
+		this->sprite_width, this->sprite_height
+	);
 
-	this->current_sprite.setPosition((float)this->get_x(), (float)this->get_y());
+	//Update position of cuurent sprite based on the characters position in tile map.
+	//TODO: decouple updating the spritesheet mask and updating a characters position in map.
+	this->current_sprite.setPosition((float) this->get_x(), (float) this->get_y());
+
+	// Set the previously calculated selection rectangle. 
 	this->current_sprite.setTextureRect(walk_mask);
-	this->walk_anim_index = this->walk_anim_index + 1;
-	this->walk_anim_index = this->walk_anim_index % 3;
+
+	//Advance the walk cycle.
+	this->walk_anim_index = (this->walk_anim_index + 1) % 3;
 }
 
 void Character::set_facing(DIR dir)
