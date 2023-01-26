@@ -65,7 +65,8 @@ Map::Map(std::string map_path, std::string sheet_path) {
         //Create the tile storage matrix
         this->tile_map = new Tile[this->get_width() * this->get_height()];
 
-        //Read in each Tile::enum and create a tile obj for it. Store it in the tile_map
+        //Read in each Tile::enum and create a tile obj for it.
+        //Store said tile in the tile_map
         while (std::getline(mapfile, new_row)) {
             std::stringstream tile_row_stream(new_row);
             //Read in each character for each row
@@ -84,8 +85,9 @@ Map::Map(std::string map_path, std::string sheet_path) {
 }
 
 //Return a texture rendered from get_map();
-//This only works because each tilesheet is constructed such that its enum value is its position in the 
-//tile sheet row
+//This only works because each tilesheet is constructed such that its value of the enum is its position in the 
+//tile sheet row. i.e. the index of a specific tiles graphics is given by the enum. Pretty dangerous coupling 
+//will change
 void Map::render_map(Window* active_window)
 {
     //Get the spritesheet read to sample from
