@@ -42,7 +42,7 @@ Map::Map(std::string map_path, std::string sheet_path) {
     /* Load - the sprite sheet for this map. */
     if (!this->map_sheet.loadFromFile(this->sheet_path))
     {
-        // error...
+        // TODO: error...
     }
 
     /* Load - the integer map textfile for this map */
