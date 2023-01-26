@@ -107,14 +107,25 @@ sf::Texture* Character::get_sprite_sheet() {
 	return &this->sprite_sheet;
 }
 
-
+/* Load entire sprite sheet */
 bool Character::load_sprite_sheet()
 {
+	// Load, into memory, the sprite sheet from a static path (staticness is temp). 
+	// Load into mem from storage.
 	if (!this->sprite_sheet.loadFromFile("assets/Red_player.png")) {
 		return false;
 	}
+
+	// Set the Character's sprite sheet into the obj.
 	this->current_sprite.setTexture(*this->get_sprite_sheet());
-	this->current_sprite.setTextureRect(sf::IntRect(0, 0, this->sprite_width, this->sprite_height));
+
+	// Set what what part of the sprite sheet is displayed.
+	this->current_sprite.setTextureRect(
+		sf::IntRect(
+			0, 0, 
+			this->sprite_width, this->sprite_height
+		)
+	);
 	return true;
 }
 
