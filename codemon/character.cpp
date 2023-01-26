@@ -212,6 +212,7 @@ void Character::update_sprite_pos() {
 	this->walk_anim_index = (this->walk_anim_index + 1) % 3;
 }
 
+/*Getter - updates facing direction to the given direction.*/
 void Character::set_facing(DIR dir)
 {
 	this->facing = dir;
