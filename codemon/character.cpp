@@ -160,7 +160,8 @@ Coordinates Character::move_cord(DIR move_dir) {
 
 }
 
-//Move character in a direction
+//Move character in a direction. 
+//This func actually changes characters position state.
 void Character::move(DIR new_dir)
 {
 	//Make sure its a valid move direction
