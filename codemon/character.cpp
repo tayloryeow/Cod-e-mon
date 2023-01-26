@@ -5,7 +5,7 @@
 #include "map.h"
 #include <cassert>
 
-/* Constructor */
+/* Default Constructor */
 Character::Character() {
 	this->pos = Coordinates(0, 0);
 	this->walk_anim_index = 0;
@@ -17,6 +17,7 @@ Character::Character() {
 	this->sprite_height = 32;
 }
 
+// Coordinate Constructor
 Character::Character(int x, int y) {
 	//Create character at a position
 	this->pos = Coordinates(x, y);
@@ -30,6 +31,7 @@ Character::Character(int x, int y) {
 
 }
 
+/* Getters Section */
 int Character::get_x()
 {
 	return this->pos.get_x();
@@ -39,6 +41,8 @@ int Character::get_y()
 {
 	return this->pos.get_y();
 }
+
+/* Setters section */
 
 void Character::set_x(int new_x)
 {
@@ -50,10 +54,11 @@ void Character::set_y(int new_y)
 	this->pos.set_y(new_y);
 }
 
-//Move this character by and ammount on the X axis.
-//-Set facing direction for the character
-//-Move the character
-//-No error, bounds or collision checks
+/*Move this character by an ammount on the X axis.
+-Set facing direction for the character
+-Move the character
+-No error, bounds or collision checks
+*/
 void Character::move_x(int new_x)
 {
 	//Determine which direction the proposed move (new_x) is in.
