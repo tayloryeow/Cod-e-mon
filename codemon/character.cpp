@@ -72,10 +72,11 @@ void Character::move_x(int new_x)
 	this->set_x(this->get_x() + new_x);
 }
 
-//Move this character by and ammount on the Y axis.
-//-Set facing direction for the character
-//-Move the character
-//-No error, bounds or collision checks
+/*/Move this character byand ammount on the Y axis.
+-Set facing direction for the character
+-Move the character
+-No error, bounds or collision checks
+*/
 void Character::move_y(int new_y)
 {
 	if (new_y >= 0) {
@@ -94,12 +95,14 @@ Coordinates Character::get_pos()
 	return this->pos;
 }
 
+/* Return a pointer to the current sprite. Its basically a getter */
 sf::Sprite* Character::get_current_sprite()
 {
 	//Update sprite
 	return &this->current_sprite;
 }
 
+/* Return a pointer to the entire sprite sheet. Its basically a getter */
 sf::Texture* Character::get_sprite_sheet() {
 	return &this->sprite_sheet;
 }
