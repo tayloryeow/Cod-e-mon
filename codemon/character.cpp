@@ -119,7 +119,7 @@ bool Character::load_sprite_sheet()
 	// Set the Character's sprite sheet into the obj.
 	this->current_sprite.setTexture(*this->get_sprite_sheet());
 
-	// Set what what part of the sprite sheet is displayed.
+	// Set what part of the sprite sheet is displayed.
 	this->current_sprite.setTextureRect(
 		sf::IntRect(
 			0, 0, 
@@ -129,13 +129,17 @@ bool Character::load_sprite_sheet()
 	return true;
 }
 
-//Given a direction return this character's 
-//new position after a hypothetical move.  
+//Given a direction, return this character's new position after 
+//a hypothetical move. Does not actually move character.
 Coordinates Character::move_cord(DIR move_dir) {
+	//Probably unneccessary, but good to have while initially setting up 
+	//program
 	assert(move_dir != DIR::NONE);
 
-	Coordinates delta(0,0);
+	//Result holder - A vector tuple that describes how the chararcter would move
+	Coordinates delta(0,0);		
 
+	//Fill result holder with apprioriate vector based on given, desired move direction.
 	switch (move_dir) {
 	case DIR::N:
 		delta = delta + Coordinates(1, 0);
@@ -151,6 +155,7 @@ Coordinates Character::move_cord(DIR move_dir) {
 		break;
 	}
 
+	//return Tile position that the character would occupy IF they moved
 	return this->get_pos() + delta;
 
 }
