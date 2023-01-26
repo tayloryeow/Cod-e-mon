@@ -122,13 +122,14 @@ void Map::render_map(Window* active_window)
     }
 }
 
+//Returns boolean of wether a coordinate is within map boundaries of not.
+//I can skip the lower bounds check that is usually present in a 
+//boundary check as coordinates are defined as unsigned
 bool Map::in_bounds(Coordinates proposed_coord) {
-    return true;
+    return (proposed_coord.get_x() < this->get_width()) && (proposed_coord.get_y() < this->get_height());
 }
 
-/*
-Getters and Setters
-*/
+/* Getters and Setters section */
 
 void Map::set_dimensions(Coordinates dim) {
     this->dimensions = dim;
