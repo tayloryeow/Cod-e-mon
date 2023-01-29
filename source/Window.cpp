@@ -1,7 +1,7 @@
 #include "window.h"
 #include <string>
 
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 
 Window::Window(int width, int height, std::string text) {
     this->px_height = height;

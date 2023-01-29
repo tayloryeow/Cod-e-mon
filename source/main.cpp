@@ -2,7 +2,7 @@
 
 #include "character.h"
 #include "map.h"
-#include "Window.h"
+#include "window.h"
 #include "direction.h"
 
 #include <list>
@@ -47,7 +47,7 @@ int main()
     player.load_sprite_sheet();
 
     //Load in test map
-    Map game_map("../../source/maps/map_set/map_00.txt", "maps/map_set/map_00.png");
+    Map game_map("../../source/maps/map_set/map_00.txt", "../../source/maps/map_set/map_00.png");
 
     //Flag declarations
     bool key_input = false;

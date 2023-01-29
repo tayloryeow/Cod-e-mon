@@ -131,7 +131,6 @@ bool Map::in_bounds(Coordinates proposed_coord) {
 }
 
 /* Getters and Setters section */
-
 void Map::set_dimensions(Coordinates dim) {
     this->dimensions = dim;
 }
