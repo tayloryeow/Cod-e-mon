@@ -47,3 +47,5 @@ Now as I finally finish my formal education and have amassed a decade or so of p
 - add collision
 - add bounds checking
 - add music
+
+-Redo assest importation: Make it a little bit more flexible. Had to use some hardcoding that I am unsatisfied with. Should ideally use macros to leverage preprocessor. This would ideally allow us to navigate to the target assets at compile time.
