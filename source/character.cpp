@@ -7,6 +7,8 @@
 
 #include <cassert>
 
+#include <filesystem>
+
 /* Default Constructor */
 Character::Character() {
 	this->pos = Coordinates(0, 0);
@@ -112,9 +114,10 @@ sf::Texture* Character::get_sprite_sheet() {
 /* Load entire sprite sheet */
 bool Character::load_sprite_sheet()
 {
+
 	// Load, into memory, the sprite sheet from a static path (staticness is temp). 
 	// Load into mem from storage.
-	if (!this->sprite_sheet.loadFromFile("assets/Red_player.png")) {
+	if (!this->sprite_sheet.loadFromFile("../../source/assets/Red_player.png")) {
 		return false;
 	}
 
