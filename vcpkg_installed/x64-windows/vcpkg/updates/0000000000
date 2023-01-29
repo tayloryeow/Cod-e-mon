@@ -1,0 +1,9 @@
+Package: boost-system
+Version: 1.81.0
+Depends: boost-assert, boost-build, boost-config, boost-modular-build-helper, boost-throw-exception, boost-variant2, boost-vcpkg-helpers, boost-winapi, vcpkg-cmake
+Architecture: x64-windows
+Multi-Arch: same
+Abi: e793fbb99cbacbb1e7dcc448d1d5ad8603ccf5aa11c2f0c2c6fb46adfccf5527
+Description: Boost system module
+Type: Port
+Status: purge ok half-installed

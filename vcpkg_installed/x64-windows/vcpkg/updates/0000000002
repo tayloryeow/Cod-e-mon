@@ -1,0 +1,9 @@
+Package: boost-build
+Version: 1.81.0
+Depends: boost-uninstall
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 90f0f1daeecd5d7253348ae7dbd53a7482c4ead8d65431c2c304b3366320d337
+Description: Boost.Build
+Type: Port
+Status: purge ok half-installed

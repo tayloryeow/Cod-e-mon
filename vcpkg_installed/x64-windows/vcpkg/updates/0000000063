@@ -1,0 +1,10 @@
+Package: sfml
+Version: 2.5.1
+Port-Version: 14
+Depends: freetype, libflac, libogg, libvorbis, openal-soft, opengl, stb, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: da1c7f3f22cfe6fe05034e81d2023acbd2b08725fcd75ce66d7e9160c8066c0a
+Description: Simple and fast multimedia library
+Type: Port
+Status: install ok installed

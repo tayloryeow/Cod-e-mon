@@ -1,0 +1,9 @@
+Package: boost-config
+Version: 1.81.0
+Depends: boost-vcpkg-helpers
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 60605b7325882f5d4dd33d28ab0f016d3f69a199aa88fd89086652e022c64d3f
+Description: Boost config module
+Type: Port
+Status: purge ok not-installed

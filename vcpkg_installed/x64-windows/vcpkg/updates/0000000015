@@ -1,0 +1,9 @@
+Package: boost-mp11
+Version: 1.81.0
+Depends: boost-vcpkg-helpers
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 6e1f21f64594e62a54e39e096b4ae9c9b0b66450c300a57c3ad61e15ad2b9e45
+Description: Boost mp11 module
+Type: Port
+Status: purge ok not-installed

@@ -164,8 +164,7 @@ Coordinates Character::move_cord(DIR move_dir) {
 
 //Move character in a direction. 
 //This func actually changes characters position state.
-void Character::move(DIR new_dir)
-{
+void Character::move(DIR new_dir) {
 	//Make sure its a valid move direction
 	assert(new_dir != DIR::NONE);
 	this->facing = new_dir;
@@ -215,7 +214,6 @@ void Character::update_sprite_pos() {
 }
 
 /*Getter - updates facing direction to the given direction.*/
-void Character::set_facing(DIR dir)
-{
+void Character::set_facing(DIR dir) {
 	this->facing = dir;
 }
