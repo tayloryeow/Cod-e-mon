@@ -24,11 +24,12 @@ Now as I finally finish my formal education and have amassed a decade or so of p
 > Multiple Maps
 >
 > > * Easy transitions between maps. Easy in this context means no noticable loading times.
-> > * Transition animations, i.e. wipes, fades. <br> If you're thinking of early 2000s video editing software style transitions, you are in the right ball park.
+> > * Transition animations, i.e. wipes, fades. <br> If you're thinking of early 2000s video editing software style 
+> > * transitions, you are in the right ballpark.
 >
 > Wild Codemon areas 
 > > * A battle system   
-> > * RPG progression system inspried, but hopefully not hopelessly derivative, of Pokemon.
+> > * RPG progression system inspired, but hopefully not hopelessly derivative, of Pokemon.
 >
 > A Map Editor would be nice
 > > * Procedural map generator. Stoichastic - probably random noise based
