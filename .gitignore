@@ -4,5 +4,5 @@
 #Exclude the cmake builder directory location
 cmake-build-debug/
 
-# Exclude the build directory
-./build/*
+# Exclude the build-target directory
+/build-target/
