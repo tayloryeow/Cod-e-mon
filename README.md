@@ -1,4 +1,12 @@
-# Cod-é-mon
+# Cod-é-mon - Pokemon clone 
+
+#### Cliff's notes - Abstract :
+
+2d tile based game engine. Written, portably, in C++, Codemon and the associated "Monsta" game-engine can be cross-compiled, to unix based OS's (Mac/Debian) and Windows 8+. 
+The Monsta Engine and which Cod-e-mon game built on it, leverages CMake for its build system. 
+The SFML (Super Fast Multi-Media) is used as the graphical interface library. 
+
+Note: Don't sue me nintendo buissness daddy.
 
 ## Backstory 
 
