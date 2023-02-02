@@ -56,4 +56,4 @@ Now as I finally finish my formal education and have amassed a decade or so of p
 - add bounds checking
 - add music
 - Redo assest importation: Make it a little bit more flexible. Had to use some hardcoding that I am unsatisfied with. Should ideally use macros to leverage preprocessor. This would ideally allow us to navigate to the target assets at compile time.
-- Add an antire testing suite for the low level data structures. I regret rolling my own but at this point adding the testing suite is the only way to nail everything down.
+- Add a testing suite for the low level data structures. I regret rolling my own but at this point adding the testing suite is the only way to nail everything down.
